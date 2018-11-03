@@ -5,7 +5,8 @@ USE spirit_animaldb;
 
 CREATE TABLE users (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  userID VARCHAR(45) NOT NULL,
+  userID VARCHAR(50) NOT NULL,
+  userEmail VARCHAR(50) NOT NULL,
   userImage VARCHAR(255) NOT NULL
 );
 
@@ -16,8 +17,22 @@ CREATE TABLE questions (
 
 CREATE TABLE answers (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  answer INT NOT NULL
+  userID INT NOT NULL,
+  questionID INT NOT NULL,
+  answer VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users (userID, userImage)
-VALUES ("aimee", "https://www.tanyacasteel.com/wp-content/uploads/2017/04/phoenix-spirit-animal-small.jpeg");
+INSERT INTO questions (question)
+VALUES ("If you could be any animal, what would you be?"); 
+
+INSERT INTO questions (question)
+VALUES ("What's your favorite smell?");
+
+INSERT INTO questions (question)
+VALUES ("What's your go-to cheat meal?")
+
+INSERT INTO questions (question)
+VALUES ("What animal do you fear the most?");
+
+INSERT INTO questions (question)
+VALUES ("If you were in a horror film, what weapon would you use to defend yourself?")
