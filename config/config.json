@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "Eclipse03!",
+    "database": "spirit_animaldb",
     "host": "localhost",
     "dialect": "mysql"
   },
