@@ -3,19 +3,20 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.users.findAll({}).then(function(dbUsers) {
+      console.log(dbUsers);
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        msg: "Welcome to SpiritAnimal Dating",
+        users: dbUsers
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Load users page and pass in an user by id
+  app.get("/users/:id", function(req, res) {
+    db.users.findOne({ where: { id: req.params.id } }).then(function(dbUsers) {
+      res.render("users", {
+        user: dbUsers
       });
     });
   });
