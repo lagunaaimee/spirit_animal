@@ -3,23 +3,27 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h2>Spirit Animal Home Page. Fill out your username below.</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="userID">Type Your Username Below:</label>
+            <input type="text" id="userID" class="form-control" aria-describedby="userID" placeholder="Type Username Here">
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="userEmail">Email input field</label>
+            <textarea class="form-control" id="userEmail" aria-describedby="userEmail" placeholder="type a vaild email here"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="userImage">Spirit animal image</label>
+            <textarea class="form-control" id="userImage" aria-describedby="userImage" placeholder="type url to spirit animal image here"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
+        <h3>Temporary Visual Representation of our database answers:</h3>
+        <ul id="users-list" class="list-group">
+          {{#each users}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="users/{{this.id}}">{{this.userID}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}

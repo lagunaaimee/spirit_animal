@@ -1,47 +1,48 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $userID = $("#userID");
+var $userEmail = $("#userEmail");
+var $userImage = $("#userImage");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $usersList = $("#user-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveUsers: function(users) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/users",
+      data: JSON.stringify(users)
     });
   },
-  getExamples: function() {
+  getUsers: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/users",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteUsers: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/users/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+// refreshPage gets new examples from the db and repopulates the list
+var refreshPage = function() {
+  API.getUsers().then(function(data) {
+    var $users = data.map(function(users) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(users.userID)
+        .attr("href", "/users/" + users.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": users.id
         })
         .append($a);
 
@@ -54,8 +55,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $usersList.empty();
+    $usersList.append($users);
   });
 };
 
@@ -64,22 +65,23 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var users = {
+    userID: $userID.val().trim(),
+    userEmail: $userEmail.val().trim(),
+    userImage: $userImage.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(users.userID && users.userEmail && users.userImage)) {
+    alert("You must enter a Username, Email Address, and Spirit Animal Image!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveUsers(users).then(function() {
+    refreshPage();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $userID.val("");
+  $userEmail.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +91,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteUsers(idToDelete).then(function() {
+    refreshPage();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$usersList.on("click", ".delete", handleDeleteBtnClick);
