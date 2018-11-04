@@ -4,7 +4,6 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.users.findAll({}).then(function(dbUsers) {
-      console.log(dbUsers);
       res.render("index", {
         msg: "Welcome to SpiritAnimal Dating",
         users: dbUsers
