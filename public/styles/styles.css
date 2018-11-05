@@ -1,3 +1,10 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  color: whitesmoke;
+  background: url("lion3.jpg");
+}
+

@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.users.findAll({}).then(function(dbUsers) {
       res.render("index", {
-        msg: "Welcome to SpiritAnimal Dating",
+        msg: "Welcome to Spirit Animal Connection",
         users: dbUsers
       });
     });
