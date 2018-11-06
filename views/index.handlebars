@@ -2,20 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Spirit Animal Home Page. Fill out your username below.</h2>
+        <h1><center>{{msg}}</center></h1>
+        <h2><center>Please fill out your user details below:</center></h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="userID">Type Your Username Below:</label>
+            <label for="userID">Username:</label>
             <input type="text" id="userID" class="form-control" aria-describedby="userID" placeholder="Type Username Here">
           </div>
           <div class="form-group">
-            <label for="userEmail">Email input field</label>
-            <textarea class="form-control" id="userEmail" aria-describedby="userEmail" placeholder="type a vaild email here"></textarea>
+            <label for="userEmail">Email:</label>
+            <textarea class="form-control" id="userEmail" aria-describedby="userEmail" placeholder="Type Email Here"></textarea>
           </div>
           <div class="form-group">
-            <label for="userImage">Spirit animal image</label>
-            <textarea class="form-control" id="userImage" aria-describedby="userImage" placeholder="type url to spirit animal image here"></textarea>
+            <label for="userImage">Spirit Animal Image:</label>
+            <textarea class="form-control" id="userImage" aria-describedby="userImage" placeholder="Paste Spirit Animal Image URL Here"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
@@ -24,7 +24,7 @@
           {{#each users}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="users/{{this.id}}">{{this.userID}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <button class="btn btn-danger float-right delete">X</button>
           </li>
           {{/each}}
         </ul>
