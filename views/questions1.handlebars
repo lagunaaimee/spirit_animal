@@ -1,0 +1,22 @@
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{instructions}}</h1>
+        <h2>placeholder</h2>
+        <form class="clearfix mb-4"  method="POST" action="/questions/2">
+          <div class="form-group">
+            <label for="questionID">{{question}}</label>
+            {{!-- where text is the current quesiton --}}
+            <input type="hidden" name="questionID" value="{{id}}">
+            <input type="text" name="answer" class="form-control" placeholder="Upload Image here">
+          </div>
+          <button class="btn btn-primary float-right">Submit Answer as an Image</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>

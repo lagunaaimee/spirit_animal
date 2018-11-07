@@ -4,6 +4,7 @@
       <div class="col-8 offset-2">
         <h1><center>{{msg}}</center></h1>
         <h2><center>Please fill out your user details below:</center></h2>
+        <button id="goToQuestions" class="btn btn-primary float-right">Go2Questions</button>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="userID">Username:</label>
@@ -23,8 +24,8 @@
         <ul id="users-list" class="list-group">
           {{#each users}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="users/{{this.id}}">{{this.userID}}</a>
-            <button class="btn btn-danger float-right delete">X</button>
+            <a href="api/users/{{this.id}}">{{this.userID}}</a>
+            <button class="btn btn-danger delete float-right">X</button>
           </li>
           {{/each}}
         </ul>
