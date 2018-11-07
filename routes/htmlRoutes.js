@@ -38,7 +38,7 @@ module.exports = function (app) {
       questionID: id,
       answer: req.body.answer
     }).then(function (answer) {
-      if (5 == answer.questionID) {
+      if (5 === id + 1) {
         res.render("results", {
 
         });
