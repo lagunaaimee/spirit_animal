@@ -11,7 +11,7 @@ module.exports = function(app) {
   // Create a new user
   app.post("/api/users", function(req, res) {
     db.users.create(req.body).then(function(dbUsers) {
-      res.json(dbUsers);
+      res.send({ redirect: "/questions/" + dbUsers.id});
     });
   });
 

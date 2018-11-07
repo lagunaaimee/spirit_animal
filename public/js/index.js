@@ -5,6 +5,7 @@ var $userImage = $("#userImage");
 var $submitBtn = $("#submit");
 var $usersList = $("#user-list");
 
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveUsers: function(users) {
@@ -31,35 +32,6 @@ var API = {
   }
 };
 
-// refreshPage gets new examples from the db and repopulates the list
-var refreshPage = function() {
-  API.getUsers().then(function(data) {
-    var $users = data.map(function(users) {
-      var $a = $("<a>")
-        .text(users.userID)
-        .attr("href", "/users/" + users.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": users.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $usersList.empty();
-    $usersList.append($users);
-  });
-};
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -76,26 +48,40 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveUsers(users).then(function() {
-    refreshPage();
-  });
-
   $userID.val("");
   $userEmail.val("");
+  $userImage.val("");
+
+  API.saveUsers(users).then(function(res) {
+    if (res.redirect) {
+      document.location.href = res.redirect;
+  }
+  });
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function(event) {
+  event.preventDefault();
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
   API.deleteUsers(idToDelete).then(function() {
-    refreshPage();
+    location.reload();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$usersList.on("click", ".delete", handleDeleteBtnClick);
+$(".delete").on("click", handleDeleteBtnClick);
+$("#questionSubmit1").on("click", function() {
+  window.location.href = "/questions/2";
+  location.reload();
+});
+$submitBtn.on("click", handleFormSubmit);
+$(".delete").on("click", handleDeleteBtnClick);
+$("#questionSubmit2").on("click", function() {
+  window.location.href = "/questions/3";
+  location.reload();
+});

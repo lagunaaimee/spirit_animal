@@ -1,27 +1,62 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.users.findAll({}).then(function(dbUsers) {
+  app.get("/", function (req, res) {
+    db.users.findAll({}).then(function (dbUsers) {
       res.render("index", {
         msg: "Welcome to Spirit Animal Connection",
         users: dbUsers
       });
     });
   });
-
   // Load users page and pass in an user by id
-  app.get("/users/:id", function(req, res) {
-    db.users.findOne({ where: { id: req.params.id } }).then(function(dbUsers) {
+  app.get("/api/users/:id", function (req, res) {
+    db.users.findOne({ where: { id: req.params.id } }).then(function (dbUsers) {
       res.render("users", {
         user: dbUsers
       });
     });
   });
+  app.get("/questions/:id", function (req, res) {
+    db.questions
+      .findOne({ where: { id: 1 } })
+      .then(function (dbQuestions) {
+        res.render("questions1", {
+          question: dbQuestions.question,
+          instructions: "Answer the following quesiton by uploading a photo.",
+          userID: req.params.id,
+          id: dbQuestions.id
+        });
+      });
+  });
+  app.post("/questions/:id", function (req, res) {
+    var id = parseInt(req.body.questionID);
+    console.log(id);
+    db.answers.create({
+      userID: req.params.id,
+      questionID: id,
+      answer: req.body.answer
+    }).then(function (answer) {
+      if (5 === id + 1) {
+        res.render("results", {
+
+        });
+      } else {
+        console.log(answer.questionID);
+        db.questions
+          .findOne({ where: { id: parseInt(answer.questionID) + 1 } })
+          .then(function (dbQuestions) {
+            res.render("questions1", {
+              question: dbQuestions.question
+            });
+          });
+      }
+    });
+  });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

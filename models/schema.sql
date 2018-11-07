@@ -29,10 +29,10 @@ INSERT INTO questions (question)
 VALUES ("What's your favorite smell?");
 
 INSERT INTO questions (question)
-VALUES ("What's your go-to cheat meal?")
+VALUES ("What's your go-to cheat meal?");
 
 INSERT INTO questions (question)
 VALUES ("What animal do you fear the most?");
 
 INSERT INTO questions (question)
-VALUES ("If you were in a horror film, what weapon would you use to defend yourself?")
+VALUES ("If you were in a horror film, what weapon would you use to defend yourself?");
