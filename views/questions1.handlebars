@@ -5,11 +5,11 @@
         <h1>{{instructions}}</h1>
         <h2>placeholder</h2>
         {{!!--fix below this line for /questions/userID--}}
-        <form class="clearfix mb-4" method="POST" action="/questions/{{userID}}">
+        <form class="clearfix mb-4" method="POST" action="/questions/{{userId}}">
           <div class="form-group">
-            <label for="questionID">{{question}}</label>
+            <label for="questionId">{{question}}</label>
             {{!-- where text is the current quesiton --}}
-            <input type="hidden" name="questionID" value="{{id}}">
+            <input type="hidden" name="questionId" value="{{id}}">
             <input type="text" name="answer" class="form-control" placeholder="Upload Image here" required>
           </div>
           <button class="btn btn-primary float-right">Submit Answer as an Image</button>
