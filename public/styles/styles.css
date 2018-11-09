@@ -2,9 +2,23 @@
   line-height: 2.5;
 }
 
+.jumbotron{
+  background-color:lightslategray;
+  border: 1px;
+}
+
 body {
   font-family: 'Cormorant Garamond', serif;
   color: whitesmoke;
   background: url("lion3.jpg");
 }
 
+
+#msg {
+  font-size: 50px;
+  font-family: 'Spicy Rice', cursive;;
+}
+
+#submit {
+  font-family: 'Spicy Rice', cursive;;
+}

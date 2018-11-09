@@ -38,7 +38,8 @@ module.exports = function (app) {
       questionID: id,
       answer: req.body.answer
     }).then(function (answer) {
-      if (5 === id + 1) {
+      //Garrett- results was firing at question 4; now questioning 5
+      if (5 === id) {
         res.render("results", {
 
         });
@@ -48,7 +49,10 @@ module.exports = function (app) {
           .findOne({ where: { id: parseInt(answer.questionID) + 1 } })
           .then(function (dbQuestions) {
             res.render("questions1", {
-              question: dbQuestions.question
+              question: dbQuestions.question,
+              instructions: "Answer the following quesiton by uploading a photo.",
+              userID: req.params.id,
+              id: dbQuestions.id
             });
           });
       }
