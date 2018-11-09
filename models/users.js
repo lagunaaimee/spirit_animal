@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    userImage: DataTypes.STRING
+    userImage: DataTypes.STRING 
   });
   // END users CONSTRUCTOR
   return users;

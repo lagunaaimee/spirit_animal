@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var questions = sequelize.define("questions", {
     question: DataTypes.STRING,
     instructions: DataTypes.STRING
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       question:
         "If you were in a horror film, what weapon would you use to defend yourself?"
     },
-    { instructions: "Answer the following quesiton by uploading a photo."}
+    { instructions: "Answer the following quesiton by uploading a photo." }
   ]);
   return questions;
 };
