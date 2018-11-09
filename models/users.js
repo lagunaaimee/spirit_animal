@@ -1,7 +1,6 @@
 // BEGIN users CONSTRUCTOR
 module.exports = function(sequelize, DataTypes) {
   var users = sequelize.define("users", {
-    userID: DataTypes.STRING,
     userEmail: {
       type: DataTypes.STRING,
       unique: true,

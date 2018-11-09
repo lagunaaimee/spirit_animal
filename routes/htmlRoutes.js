@@ -25,17 +25,17 @@ module.exports = function (app) {
         res.render("questions1", {
           question: dbQuestions.question,
           instructions: "Answer the following quesiton by uploading a photo.",
-          userID: req.params.id,
+          userId: req.params.id,
           id: dbQuestions.id
         });
       });
   });
   app.post("/questions/:id", function (req, res) {
-    var id = parseInt(req.body.questionID);
+    var id = parseInt(req.body.questionId);
     console.log(id);
     db.answers.create({
-      userID: req.params.id,
-      questionID: id,
+      userId: req.params.id,
+      questionId: id,
       answer: req.body.answer
     }).then(function (answer) {
       //Garrett- results was firing at question 4; now questioning 5
@@ -44,14 +44,14 @@ module.exports = function (app) {
 
         });
       } else {
-        console.log(answer.questionID);
+        console.log(answer.questionId);
         db.questions
-          .findOne({ where: { id: parseInt(answer.questionID) + 1 } })
+          .findOne({ where: { id: parseInt(answer.questionId) + 1 } })
           .then(function (dbQuestions) {
             res.render("questions1", {
               question: dbQuestions.question,
               instructions: "Answer the following quesiton by uploading a photo.",
-              userID: req.params.id,
+              userId: req.params.id,
               id: dbQuestions.id
             });
           });
