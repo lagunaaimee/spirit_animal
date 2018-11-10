@@ -32,6 +32,7 @@ module.exports = function (app) {
   });
   app.post("/questions/:id", function (req, res) {
     var id = parseInt(req.body.questionId);
+    var idOfUser = req.params.id;
     console.log(id);
     db.answers.create({
       userId: req.params.id,
@@ -40,8 +41,9 @@ module.exports = function (app) {
     }).then(function (answer) {
       //Garrett- results was firing at question 4; now questioning 5
       if (5 === id) {
-        res.render("results", {
-
+    
+        res.render("results/" + idOfUser, {
+          
         });
       } else {
         console.log(answer.questionId);
@@ -58,6 +60,8 @@ module.exports = function (app) {
       }
     });
   });
+
+  
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

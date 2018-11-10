@@ -15,20 +15,21 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{instructions}}</h1>
+        <h1></h1>
+        <h2>{{emailMatch}}</h2>
         <div class="jumbotron jumbotron-fluid" class="jumbotron" id="jumbo2">
-          <div class="container">
+          {{!-- <div class="container">
             
             {{!!--fix below this line for /questions/userID--}}
-            <form class="clearfix mb-4" method="POST" action="/api/testresults/{{userId}}">
-              <div class="form-group">
-                <label for="userId">{{answer}}</label>
+            {{!-- <form class="clearfix mb-4" method="POST" action="/api/testresults/{{userId}}"> --}}
+              {{!-- <div class="form-group"> --}}
+                {{!-- <label for="userId">{{answer}}</label> --}}
 
                 {{!-- where text is the current quesiton --}}
                 {{!-- {{commented expressions}} --}}
                 {{!-- } <input type="hidden" name="questionId" value="{{id}}">
                 <input type="text" name="answer" class="form-control" placeholder="Upload Image here" required> --}}
-              </div>
+              {{!-- </div> --}}
               <h4 id="resultsText">Congratulations on your Spirit Animal Match!</h4>
               <div>
                 

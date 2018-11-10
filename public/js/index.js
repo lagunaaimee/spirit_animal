@@ -29,6 +29,12 @@ var API = {
       url: "api/users/" + id,
       type: "DELETE"
     });
+  },
+  getResults: function (id) {
+    return $.ajax({
+      url: "/results/" + id,
+      type: "GET"
+    });
   }
 };
 
@@ -114,3 +120,4 @@ $("#questionSubmit1").on("click", function () {
   location.reload();
 });
 
+ 
