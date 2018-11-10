@@ -15,7 +15,9 @@
   
   
 }
-
+.overwrite {
+  margin-left: 16.666667%;
+}
 #jumbo2 {
   size: 200px;
   background-position: absolute;
