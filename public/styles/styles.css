@@ -2,17 +2,48 @@
   line-height: 2.5;
 }
 
+.container2 {
+  
+}
+
 .jumbotron{
-  background-color:lightslategray;
-  border: 1px;
+  size: 200px;
+  background: url("lion3.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: absolute;
+  
+  
+}
+
+#jumbo2 {
+  size: 200px;
+  background-position: absolute;
+}
+
+.navbar {
+  font-family: 'Spicy Rice', cursive;
+  height: 100 px;
 }
 
 body {
   font-family: 'Cormorant Garamond', serif;
-  color: whitesmoke;
-  background: url("lion3.jpg");
+  color: black;
+  background: url("african!.jpg");
+  background-size: 100%;
+  background-position: absolute;
+ }
+
+.instructions {
+  text-align: center;
 }
 
+
+#background-img {
+  background: url("african!.jpg");
+  background-size: 100%;
+  background-position: absolute;
+}
 
 #msg {
   font-size: 50px;
@@ -21,4 +52,32 @@ body {
 
 #submit {
   font-family: 'Spicy Rice', cursive;;
+}
+
+#resultsText {
+  text-align: center;
+  font-family: 'Spicy Rice', cursive;;
+  font-size: 50px;
+
+}
+
+#instructions {
+  font-family: 'Spicy Rice', cursive;;
+  font-size: 50px;
+}
+
+#footer {
+  bottom: 0;
+  left: 0;
+  position: center;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 15px;
+
+}
+
+#results {
+  text-align: center;
+  font-family: 'Spicy Rice', cursive;;
+  font-size: 50px;
 }
