@@ -3,7 +3,6 @@ var $userID = $("#userID");
 var $userEmail = $("#userEmail");
 var $userImage = $("#userImage");
 var $submitBtn = $("#submit");
-var $usersList = $("#user-list");
 
 
 // The API object contains methods for each kind of request we'll make
@@ -28,6 +27,12 @@ var API = {
     return $.ajax({
       url: "api/users/" + id,
       type: "DELETE"
+    });
+  },
+  getResults: function (id) {
+    return $.ajax({
+      url: "/results/" + id,
+      type: "GET"
     });
   }
 };
@@ -114,3 +119,4 @@ $("#questionSubmit1").on("click", function () {
   location.reload();
 });
 
+ 
