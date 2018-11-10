@@ -1,51 +1,77 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>
+<!-- navBar-->
+<nav class="navbar navbar-light bg-light" role="navigation">
+  <a class="navbar-brand" href="#">
+    <img src="https://cdn3.iconfinder.com/data/icons/animals-105/150/icon_animal_leao-512.png" width="30" height="30"
+      class="d-inline-block align-top" alt="">
+    Spirit Animal
+  </a>
+  <form class="form-inline">
+    <button class="btn btn-sm btn-outline-secondary" type="button">About Us</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button">Animal Symbolism</button>
+  </form>
+</nav>
+<!--navBar end-->
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h1>
+        <div class="container2">
           <div class="jumbotron jumbotron-fluid" class="jumbotron">
             <div class="container">
               <center id="msg">{{msg}}</center>
             </div>
           </div>
-        </h1>
-        <br>
-        <h2>
-          <center class="">Please fill out your user details below:</center>
-        </h2>
-        <button id="goToQuestions" class="btn btn-primary float-right">Go2Questions</button>
+        </div>
+      </h1>
+      <br>
+      <h2>
+        <center class="">Please fill out your user details below:</center>
+      </h2>
 
-        <form id="userForm" class="clearfix mb-4" method="POST">
-          <div class="form-group">
-            <label for="userID">Username:</label>
-            <input type="text" name="userID" id="userID" class="form-control" aria-describedby="userID" placeholder="Type Username Here"
-              required>
+
+      <form id="userForm" class="clearfix mb-4" method="POST">
+        <div class="form-group">
+          <label for="userID">Username:</label>
+          <input type="text" name="userID" id="userID" class="form-control" aria-describedby="userID" placeholder="Type Username Here"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Email:</label>
+          <input type="email" name="userEmail" class="form-control" id="userEmail" aria-describedby="userEmail"
+            placeholder="Type Email Here" required>
+        </div>
+        <div class="form-group">
+          <label for="userImage">Spirit Animal Image:</label>
+          <textarea class="form-control" name="userImage" id="userImage" aria-describedby="userImage" placeholder="Paste Spirit Animal Image URL Here"
+            required></textarea>
+        </div>
+        <button id="submit" class="btn btn-lg btn-block btn-primary float-right">Submit</button>
+        <!-- Footer -->
+        <footer class="page-footer font-small blue">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3" id="footer">© 2018 Copyright:
+            <a href=""> Spiritanimal.com</a>
           </div>
-          <div class="form-group">
-            <label for="userEmail">Email:</label>
-            <input type="email" name="userEmail" class="form-control" id="userEmail" aria-describedby="userEmail"
-              placeholder="Type Email Here" required>
-          </div>
-          <div class="form-group">
-            <label for="userImage">Spirit Animal Image:</label>
-            <textarea class="form-control" name="userImage" id="userImage" aria-describedby="userImage" placeholder="Paste Spirit Animal Image URL Here"
-              required></textarea>
-          </div>
-          <button id="submit" class="btn btn-lg btn-block btn-primary float-right">Submit</button>
-        </form>
-        <h3>Temporary Visual Representation of our database answers:</h3>
-        <ul id="users-list" class="list-group">
-          {{#each users}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="api/users/{{this.id}}">{{this.userID}}</a>
-            <button class="btn btn-danger delete float-right">X</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+          <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+      </form>
+      {{!-- {{commented expressions}}
+      <h3>Temporary Visual Representation of our database answers:</h3>
+      <ul id="users-list" class="list-group">
+        {{#each users}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="api/users/{{this.id}}">{{this.userID}}</a>
+          <button class="btn btn-danger delete float-right">X</button>
+        </li>
+        {{/each}}
+      </ul>--}}
     </div>
   </div>
 </div>
-
+</div>
+</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

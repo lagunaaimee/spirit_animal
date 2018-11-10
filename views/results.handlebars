@@ -1,0 +1,56 @@
+<!-- navBar-->
+<nav class="navbar navbar-light bg-light" role="navigation">
+  <a class="navbar-brand" href="#">
+    <img src="https://cdn3.iconfinder.com/data/icons/animals-105/150/icon_animal_leao-512.png" width="30" height="30"
+      class="d-inline-block align-top" alt="">
+    Spirit Animal
+  </a>
+  <form class="form-inline">
+    <button class="btn btn-sm btn-outline-secondary" type="button">About Us</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button">Animal Symbolism</button>
+  </form>
+</nav>
+<!-- End navBar-->
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{instructions}}</h1>
+        <div class="jumbotron jumbotron-fluid" class="jumbotron" id="jumbo2">
+          <div class="container">
+            
+            {{!!--fix below this line for /questions/userID--}}
+            <form class="clearfix mb-4" method="POST" action="/api/testresults/{{userId}}">
+              <div class="form-group">
+                <label for="userId">{{answer}}</label>
+
+                {{!-- where text is the current quesiton --}}
+                {{!-- {{commented expressions}} --}}
+                {{!-- } <input type="hidden" name="questionId" value="{{id}}">
+                <input type="text" name="answer" class="form-control" placeholder="Upload Image here" required> --}}
+              </div>
+              <h4 id="resultsText">Congratulations on your Spirit Animal Match!</h4>
+              <div>
+                
+
+              </div>
+            </form>
+          </div>
+        </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" id="footer">© 2018 Copyright:
+      <a href=""> Spiritanimal.com</a>
+    </div>
+    <!-- Footer -->
+    </form>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
